@@ -2,13 +2,6 @@ let demoVolume = 50;
 let prevDemoVolume = 50;
 let ytPlayer = null;
 let isYtPlaying = false;
-let currentSongIndex = 0;
-
-const demoSongs = [
-  { id: 'SlQR9iu09bQ', title: 'SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Dev bởi @cuway98' },
-  { id: '8mZqQ0m9m6g', title: 'Sơn Tùng M-TP - ĐỪNG LÀM TRÁI TIM ANH ĐAU', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 05:12' },
-  { id: 'abPmZCZZrGQ', title: 'BINZ - HIT ME UP (ft. NOMOVODKA) | OFFICIAL MV', artist: 'Kênh: SpaceSpeakers • Thời lượng: 05:36' }
-];
 
 function onYouTubeIframeAPIReady() {
   try {
@@ -113,21 +106,8 @@ function toggleDemoMute() {
   }
 }
 
-function nextDemoSong() {
-  currentSongIndex = (currentSongIndex + 1) % demoSongs.length;
-  const song = demoSongs[currentSongIndex];
-  document.getElementById('demo-song-title').innerText = song.title;
-  document.getElementById('demo-artist').innerText = song.artist;
-
-  const iframe = document.getElementById('yt-iframe-player');
-  if (iframe) {
-    iframe.src = `https://www.youtube.com/embed/${song.id}?enablejsapi=1&autoplay=1`;
-  }
-  updateDemoUI(`⏭️ Đã chuyển bài: ${song.title}`);
-}
-
 function showQueueInfo() {
-  updateDemoUI('📜 Hàng đợi hiện tại: 3 bài hát đang chờ (Yêu cầu bởi @cuway98)');
+  updateDemoUI('📜 Hàng đợi hiện tại: Bài COME MY WAY (Yêu cầu bởi @cuway98)');
 }
 
 function updateDemoUI(feedbackText) {

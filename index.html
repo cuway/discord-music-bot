@@ -116,7 +116,6 @@
 
           <div class="discord-buttons-row">
             <button class="d-btn d-btn-primary" onclick="toggleYtPlay()"><i class="fa-solid fa-play" id="hero-play-icon"></i> Phát Live</button>
-            <button class="d-btn d-btn-secondary" onclick="nextDemoSong()"><i class="fa-solid fa-forward-step"></i> Bỏ qua</button>
             <button class="d-btn d-btn-danger" onclick="stopYtPlay()"><i class="fa-solid fa-square"></i> Dừng</button>
             <button class="d-btn d-btn-secondary" onclick="showQueueInfo()"><i class="fa-solid fa-list"></i> Danh sách</button>
           </div>
@@ -139,7 +138,7 @@
       </div>
 
       <div class="demo-box">
-        <!-- Khung phát YouTube trực tiếp chuẩn 100% playable -->
+        <!-- Khung phát YouTube trực tiếp -->
         <div class="yt-player-wrapper">
           <iframe id="yt-iframe-player" src="https://www.youtube.com/embed/SlQR9iu09bQ?enablejsapi=1&rel=0&autoplay=0" title="SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
@@ -164,7 +163,6 @@
 
           <div class="demo-controls">
             <button class="demo-btn demo-btn-action" id="btn-web-play" onclick="toggleYtPlay()"><i class="fa-solid fa-play" id="play-icon"></i> <span id="play-text">Phát Live Nhạc</span></button>
-            <button class="demo-btn demo-btn-action" onclick="nextDemoSong()"><i class="fa-solid fa-forward-step"></i> Chuyển Bài</button>
             <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(-10)"><i class="fa-solid fa-volume-low"></i> Giảm 10%</button>
             <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(10)"><i class="fa-solid fa-volume-high"></i> Tăng 10%</button>
             <button class="demo-btn demo-btn-mute" onclick="toggleDemoMute()"><i class="fa-solid fa-volume-xmark"></i> Mute / Unmute</button>
