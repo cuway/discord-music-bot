@@ -14,9 +14,9 @@
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
   
-  /* Font Be Vietnam Pro - Chuẩn Font Tiếng Việt Telex 100% không bao giờ lỗi dấu */
-  --font-heading: 'Be Vietnam Pro', 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'Plus Jakarta Sans', system-ui, sans-serif;
+  /* Font Times New Roman theo yêu cầu của người dùng */
+  --font-heading: 'Times New Roman', Times, serif;
+  --font-body: 'Times New Roman', Times, serif;
   
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,7 +124,7 @@ body {
 }
 
 .status-badge {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   padding: 4px 10px;
   border-radius: 20px;
   background: rgba(16, 185, 129, 0.15);
@@ -161,7 +161,7 @@ body {
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: var(--transition-fast);
   display: flex;
   align-items: center;
@@ -179,7 +179,7 @@ body {
 }
 
 .dev-badge {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   background: rgba(255, 255, 255, 0.05);
   padding: 6px 14px;
   border-radius: 20px;
@@ -200,11 +200,12 @@ body {
   padding: 12px 24px;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
   border: none;
   transition: var(--transition-normal);
+  font-family: var(--font-body);
 }
 
 .btn-primary {
@@ -220,7 +221,7 @@ body {
 
 .btn-hero {
   padding: 16px 32px;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .btn-glass {
@@ -256,7 +257,7 @@ body {
   border-radius: 30px;
   background: rgba(99, 102, 241, 0.1);
   border: 1px solid rgba(99, 102, 241, 0.25);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #a5b4fc;
   margin-bottom: 24px;
@@ -272,7 +273,7 @@ body {
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
   margin-bottom: 36px;
   line-height: 1.7;
@@ -307,7 +308,7 @@ body {
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
@@ -366,14 +367,14 @@ body {
 .bot-tag {
   background: #5865f2;
   color: #fff;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 700;
 }
 
 .bot-status {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
@@ -399,7 +400,7 @@ body {
 
 .embed-title {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #fff;
   margin-bottom: 6px;
 }
@@ -407,7 +408,7 @@ body {
 .embed-song-name {
   font-weight: 600;
   color: #5865f2;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 12px;
 }
 
@@ -422,18 +423,18 @@ body {
 }
 
 .field-name {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
 .field-value {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #e5e7eb;
 }
 
 .field-valueHighlight {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #10b981;
   background: rgba(16, 185, 129, 0.1);
@@ -451,7 +452,7 @@ body {
   flex: 1;
   padding: 8px 12px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -460,6 +461,7 @@ body {
   justify-content: center;
   gap: 6px;
   transition: var(--transition-fast);
+  font-family: var(--font-body);
 }
 
 .d-btn-primary { background: #5865f2; color: #fff; }
@@ -488,7 +490,7 @@ body {
 
 .section-subtitle {
   color: var(--text-muted);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 /* Features Grid */
@@ -538,14 +540,14 @@ body {
 
 .feature-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .feature-desc {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.65;
 }
 
@@ -618,13 +620,13 @@ body {
 
 .demo-track-details h4 {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .demo-track-details p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   margin-bottom: 16px;
 }
@@ -668,7 +670,7 @@ body {
   padding: 12px 20px;
   border-radius: 12px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   border: none;
   cursor: pointer;
   transition: var(--transition-fast);
@@ -689,7 +691,7 @@ body {
 
 .demo-feedback {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #a5b4fc;
   font-weight: 500;
 }
@@ -720,7 +722,7 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-family: var(--font-body);
   outline: none;
   transition: var(--transition-fast);
@@ -773,7 +775,7 @@ body {
 .new-badge {
   background: #10b981;
   color: #fff;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 800;
   padding: 2px 8px;
   border-radius: 12px;
@@ -785,7 +787,7 @@ body {
   color: var(--text-muted);
   padding: 6px 12px;
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: var(--transition-fast);
   font-family: var(--font-body);
@@ -797,7 +799,7 @@ body {
 }
 
 .cmd-desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
 }
 
@@ -839,7 +841,7 @@ body {
 
 .step-title {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -891,13 +893,13 @@ body {
 }
 
 .footer-desc {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 8px;
 }
 
 .dev-contact {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #a5b4fc;
   margin-top: 6px;
 }

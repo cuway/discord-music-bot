@@ -5,33 +5,27 @@ let isYtPlaying = false;
 let currentSongIndex = 0;
 
 const demoSongs = [
-  { id: 'SlQR9iu09bQ', title: 'SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Phát triển bởi @cuway98' },
+  { id: 'SlQR9iu09bQ', title: 'SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Dev bởi @cuway98' },
   { id: '8mZqQ0m9m6g', title: 'Sơn Tùng M-TP - ĐỪNG LÀM TRÁI TIM ANH ĐAU', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 05:12' },
   { id: 'abPmZCZZrGQ', title: 'BINZ - HIT ME UP (ft. NOMOVODKA) | OFFICIAL MV', artist: 'Kênh: SpaceSpeakers • Thời lượng: 05:36' }
 ];
 
-// YouTube iFrame API Callback
 function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('yt-iframe-player', {
-    height: '390',
-    width: '640',
-    videoId: 'SlQR9iu09bQ',
-    playerVars: {
-      'autoplay': 0,
-      'controls': 1,
-      'modestbranding': 1,
-      'rel': 0
-    },
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
+  try {
+    ytPlayer = new YT.Player('yt-iframe-player', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  } catch (e) {
+    console.log('YouTube iFrame API init:', e);
+  }
 }
 
 function onPlayerReady(event) {
   if (event && event.target) {
-    event.target.setVolume(demoVolume);
+    try { event.target.setVolume(demoVolume); } catch (e) {}
   }
 }
 
@@ -41,7 +35,7 @@ function onPlayerStateChange(event) {
   const heroPlayIcon = document.getElementById('hero-play-icon');
   const playText = document.getElementById('play-text');
 
-  if (event.data === YT.PlayerState.PLAYING) {
+  if (window.YT && event.data === YT.PlayerState.PLAYING) {
     isYtPlaying = true;
     if (disc) disc.classList.add('spinning');
     if (playIcon) playIcon.className = 'fa-solid fa-pause';
@@ -58,19 +52,36 @@ function onPlayerStateChange(event) {
 }
 
 function toggleYtPlay() {
-  if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
-
-  if (isYtPlaying) {
-    ytPlayer.pauseVideo();
-    updateDemoUI('⏸️ Đã tạm dừng bài COME MY WAY.');
+  if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+    if (isYtPlaying) {
+      ytPlayer.pauseVideo();
+    } else {
+      ytPlayer.playVideo();
+    }
   } else {
-    ytPlayer.playVideo();
+    const disc = document.getElementById('demo-disc');
+    const iframe = document.getElementById('yt-iframe-player');
+    if (iframe) {
+      iframe.src = "https://www.youtube.com/embed/SlQR9iu09bQ?enablejsapi=1&autoplay=1";
+    }
+    isYtPlaying = true;
+    if (disc) disc.classList.add('spinning');
+    updateDemoUI('▶️ Đã bật trình phát nhạc trực tiếp trên video YouTube!');
   }
 }
 
 function stopYtPlay() {
-  if (!ytPlayer || typeof ytPlayer.stopVideo !== 'function') return;
-  ytPlayer.stopVideo();
+  if (ytPlayer && typeof ytPlayer.stopVideo === 'function') {
+    ytPlayer.stopVideo();
+  } else {
+    const iframe = document.getElementById('yt-iframe-player');
+    if (iframe) {
+      iframe.src = "https://www.youtube.com/embed/SlQR9iu09bQ?enablejsapi=1&autoplay=0";
+    }
+  }
+  const disc = document.getElementById('demo-disc');
+  if (disc) disc.classList.remove('spinning');
+  isYtPlaying = false;
   updateDemoUI('⏹️ Đã dừng phát nhạc hoàn toàn.');
 }
 
@@ -89,17 +100,15 @@ function changeDemoVol(delta) {
 }
 
 function toggleDemoMute() {
-  if (!ytPlayer) return;
-
   if (demoVolume > 0) {
     prevDemoVolume = demoVolume;
     demoVolume = 0;
-    if (typeof ytPlayer.mute === 'function') ytPlayer.mute();
+    if (ytPlayer && typeof ytPlayer.mute === 'function') ytPlayer.mute();
     updateDemoUI('🔇 Đã tắt tiếng YouTube (0%)');
   } else {
     demoVolume = prevDemoVolume || 50;
-    if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
-    if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(demoVolume);
+    if (ytPlayer && typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+    if (ytPlayer && typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(demoVolume);
     updateDemoUI(`🔊 Đã bật lại tiếng YouTube (${demoVolume}%)`);
   }
 }
@@ -110,8 +119,9 @@ function nextDemoSong() {
   document.getElementById('demo-song-title').innerText = song.title;
   document.getElementById('demo-artist').innerText = song.artist;
 
-  if (ytPlayer && typeof ytPlayer.loadVideoById === 'function') {
-    ytPlayer.loadVideoById(song.id);
+  const iframe = document.getElementById('yt-iframe-player');
+  if (iframe) {
+    iframe.src = `https://www.youtube.com/embed/${song.id}?enablejsapi=1&autoplay=1`;
   }
   updateDemoUI(`⏭️ Đã chuyển bài: ${song.title}`);
 }

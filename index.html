@@ -6,11 +6,6 @@
   <title>Discord Music Bot - Dev @cuway98 | Bot Phát Nhạc Tiếng Việt</title>
   <meta name="description" content="Trang web chính thức mời Discord Music Bot phát nhạc tiếng Việt. Bản quyền @cuway98. Hỗ trợ nút chỉnh volume trực tiếp, YouTube Mix, Playlist & Shorts.">
   
-  <!-- Google Fonts: Be Vietnam Pro (Chuẩn Font Tiếng Việt Telex) & Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -54,7 +49,7 @@
           Phát Nhạc <span class="gradient-text">Tiếng Việt</span> Siêu Mượt Cho Server Discord
         </h1>
         <p class="hero-description">
-          Bot phát nhạc chất lượng cao HD 128kbps, giao diện 100% tiếng Việt chuẩn font, hỗ trợ <b>Nút Chỉnh Âm Lượng Trực Tiếp 🔉 🔊 🔇</b> không cần gõ lệnh. Tương thích hoàn toàn với YouTube Mix, Radio, Playlist & Shorts.
+          Bot phát nhạc chất lượng cao HD 128kbps, giao diện 100% tiếng Việt font Times New Roman, hỗ trợ <b>Nút Chỉnh Âm Lượng Trực Tiếp 🔉 🔊 🔇</b> không cần gõ lệnh. Tương thích hoàn toàn với YouTube Mix, Radio, Playlist & Shorts.
         </p>
 
         <div class="hero-cta-group">
@@ -140,13 +135,13 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Nghe Thử Live <span class="gradient-text">"SƠN TÙNG M-TP x TYGA | COME MY WAY"</span></h2>
-        <p class="section-subtitle">Phát nhạc trực tiếp từ YouTube và chỉnh âm lượng thời gian thực bằng các nút bấm 🔉 🔊 🔇 bên dưới</p>
+        <p class="section-subtitle">Phát video nhạc trực tiếp từ YouTube và thử các nút bấm 🔉 🔊 🔇 để chỉnh âm lượng</p>
       </div>
 
       <div class="demo-box">
-        <!-- Khung chứa YouTube iFrame Player tự động -->
-        <div class="yt-player-wrapper" id="yt-player-container">
-          <div id="yt-iframe-player"></div>
+        <!-- Khung phát YouTube trực tiếp chuẩn 100% playable -->
+        <div class="yt-player-wrapper">
+          <iframe id="yt-iframe-player" src="https://www.youtube.com/embed/SlQR9iu09bQ?enablejsapi=1&rel=0&autoplay=0" title="SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="demo-player">
@@ -156,7 +151,7 @@
             </div>
             <div class="demo-track-details">
               <h4 id="demo-song-title">SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO</h4>
-              <p id="demo-artist"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Phát triển bởi @cuway98</p>
+              <p id="demo-artist"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Dev bởi @cuway98</p>
               <div class="volume-bar-container">
                 <span class="vol-icon"><i class="fa-solid fa-volume-high" id="vol-status-icon"></i></span>
                 <div class="volume-bar">
@@ -174,7 +169,7 @@
             <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(10)"><i class="fa-solid fa-volume-high"></i> Tăng 10%</button>
             <button class="demo-btn demo-btn-mute" onclick="toggleDemoMute()"><i class="fa-solid fa-volume-xmark"></i> Mute / Unmute</button>
           </div>
-          <div class="demo-feedback" id="demo-feedback">👉 Bấm "Phát Live Nhạc" để phát bài COME MY WAY từ YouTube và thử nút bấm 🔉 🔊 🔇 để chỉnh volume thực tế!</div>
+          <div class="demo-feedback" id="demo-feedback">👉 Bấm nút ▶️ Phát trên video YouTube hoặc nút "Phát Live Nhạc" để nghe nhạc trực tiếp!</div>
         </div>
       </div>
     </div>
@@ -198,7 +193,7 @@
         <div class="feature-card">
           <div class="feature-icon feature-icon-cyan"><i class="fa-solid fa-icons"></i></div>
           <h3 class="feature-title">100% Giao Diện Tiếng Việt</h3>
-          <p class="feature-desc">Toàn bộ thông báo, danh sách phát và Slash Commands đều hiển thị bằng Tiếng Việt chuẩn Font Be Vietnam Pro không lỗi font.</p>
+          <p class="feature-desc">Toàn bộ thông báo, danh sách phát và Slash Commands đều hiển thị bằng Tiếng Việt chuẩn Font Times New Roman.</p>
         </div>
 
         <div class="feature-card">
