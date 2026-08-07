@@ -1,95 +1,106 @@
 let demoVolume = 50;
 let prevDemoVolume = 50;
-let isAudioPlaying = false;
+let ytPlayer = null;
+let isYtPlaying = false;
 let currentSongIndex = 0;
 
 const demoSongs = [
-  { title: 'Sơn Tùng M-TP - Come My Way (Live Stream Web Test)', artist: 'Ca sĩ: Sơn Tùng M-TP • Tối ưu âm thanh bởi @cuway98' },
-  { title: 'Sơn Tùng M-TP - ĐỪNG LÀM TRÁI TIM ANH ĐAU', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 05:12' },
-  { title: 'BINZ - HIT ME UP (ft. NOMOVODKA) | OFFICIAL MV', artist: 'Kênh: SpaceSpeakers • Thời lượng: 05:36' }
+  { id: 'SlQR9iu09bQ', title: 'SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Phát triển bởi @cuway98' },
+  { id: '8mZqQ0m9m6g', title: 'Sơn Tùng M-TP - ĐỪNG LÀM TRÁI TIM ANH ĐAU', artist: 'Kênh: Sơn Tùng M-TP Official • Thời lượng: 05:12' },
+  { id: 'abPmZCZZrGQ', title: 'BINZ - HIT ME UP (ft. NOMOVODKA) | OFFICIAL MV', artist: 'Kênh: SpaceSpeakers • Thời lượng: 05:36' }
 ];
 
-const audioPlayer = document.getElementById('web-audio-player');
+// YouTube iFrame API Callback
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('yt-iframe-player', {
+    height: '390',
+    width: '640',
+    videoId: 'SlQR9iu09bQ',
+    playerVars: {
+      'autoplay': 0,
+      'controls': 1,
+      'modestbranding': 1,
+      'rel': 0
+    },
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
 
-function toggleWebAudio() {
-  const audio = document.getElementById('web-audio-player');
-  const playIcon = document.getElementById('play-icon');
-  const heroPlayIcon = document.getElementById('hero-play-icon');
-  const playText = document.getElementById('play-text');
-  const disc = document.getElementById('demo-disc');
-
-  if (!audio) return;
-
-  if (audio.paused) {
-    audio.volume = demoVolume / 100;
-    audio.play().then(() => {
-      isAudioPlaying = true;
-      if (playIcon) playIcon.className = 'fa-solid fa-pause';
-      if (heroPlayIcon) heroPlayIcon.className = 'fa-solid fa-pause';
-      if (playText) playText.innerText = 'Tạm Dừng Live';
-      if (disc) disc.classList.add('spinning');
-      updateDemoUI('▶️ Đang phát trực tiếp bài "Come My Way" của Sơn Tùng M-TP trên Web!');
-    }).catch(err => {
-      console.log('Autoplay error:', err);
-      // Fallback simulation if browser blocks autoplay without user interaction
-      isAudioPlaying = true;
-      if (playIcon) playIcon.className = 'fa-solid fa-pause';
-      if (playText) playText.innerText = 'Tạm Dừng Live';
-      if (disc) disc.classList.add('spinning');
-      updateDemoUI('▶️ Đã bật trình phát nhạc trực tiếp trên Web!');
-    });
-  } else {
-    audio.pause();
-    isAudioPlaying = false;
-    if (playIcon) playIcon.className = 'fa-solid fa-play';
-    if (heroPlayIcon) heroPlayIcon.className = 'fa-solid fa-play';
-    if (playText) playText.innerText = 'Phát Live Nhạc';
-    if (disc) disc.classList.remove('spinning');
-    updateDemoUI('⏸️ Đã tạm dừng phát nhạc trên Web!');
+function onPlayerReady(event) {
+  if (event && event.target) {
+    event.target.setVolume(demoVolume);
   }
 }
 
-function stopWebAudio() {
-  const audio = document.getElementById('web-audio-player');
-  const playIcon = document.getElementById('play-icon');
-  const playText = document.getElementById('play-text');
+function onPlayerStateChange(event) {
   const disc = document.getElementById('demo-disc');
+  const playIcon = document.getElementById('play-icon');
+  const heroPlayIcon = document.getElementById('hero-play-icon');
+  const playText = document.getElementById('play-text');
 
-  if (audio) {
-    audio.pause();
-    audio.currentTime = 0;
+  if (event.data === YT.PlayerState.PLAYING) {
+    isYtPlaying = true;
+    if (disc) disc.classList.add('spinning');
+    if (playIcon) playIcon.className = 'fa-solid fa-pause';
+    if (heroPlayIcon) heroPlayIcon.className = 'fa-solid fa-pause';
+    if (playText) playText.innerText = 'Tạm Dừng Live';
+    updateDemoUI('▶️ Đang phát trực tiếp bài COME MY WAY (Sơn Tùng M-TP x TYGA) từ YouTube!');
+  } else {
+    isYtPlaying = false;
+    if (disc) disc.classList.remove('spinning');
+    if (playIcon) playIcon.className = 'fa-solid fa-play';
+    if (heroPlayIcon) heroPlayIcon.className = 'fa-solid fa-play';
+    if (playText) playText.innerText = 'Phát Live Nhạc';
   }
-  isAudioPlaying = false;
-  if (playIcon) playIcon.className = 'fa-solid fa-play';
-  if (playText) playText.innerText = 'Phát Live Nhạc';
-  if (disc) disc.classList.remove('spinning');
-  updateDemoUI('⏹️ Đã dừng phát nhạc hoàn toàn!');
+}
+
+function toggleYtPlay() {
+  if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+
+  if (isYtPlaying) {
+    ytPlayer.pauseVideo();
+    updateDemoUI('⏸️ Đã tạm dừng bài COME MY WAY.');
+  } else {
+    ytPlayer.playVideo();
+  }
+}
+
+function stopYtPlay() {
+  if (!ytPlayer || typeof ytPlayer.stopVideo !== 'function') return;
+  ytPlayer.stopVideo();
+  updateDemoUI('⏹️ Đã dừng phát nhạc hoàn toàn.');
 }
 
 function changeDemoVol(delta) {
   demoVolume = Math.min(100, Math.max(0, demoVolume + delta));
   if (demoVolume > 0) prevDemoVolume = demoVolume;
 
-  const audio = document.getElementById('web-audio-player');
-  if (audio) {
-    audio.volume = demoVolume / 100;
+  if (ytPlayer && typeof ytPlayer.setVolume === 'function') {
+    ytPlayer.setVolume(demoVolume);
+    if (demoVolume > 0 && typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted()) {
+      ytPlayer.unMute();
+    }
   }
 
-  updateDemoUI(`🔉 Đã thay đổi âm lượng Live Web thành ${demoVolume}%`);
+  updateDemoUI(`🔉 Đã thay đổi âm lượng Live YouTube thành ${demoVolume}%`);
 }
 
 function toggleDemoMute() {
-  const audio = document.getElementById('web-audio-player');
+  if (!ytPlayer) return;
 
   if (demoVolume > 0) {
     prevDemoVolume = demoVolume;
     demoVolume = 0;
-    if (audio) audio.volume = 0;
-    updateDemoUI('🔇 Đã tắt tiếng Web (0%)');
+    if (typeof ytPlayer.mute === 'function') ytPlayer.mute();
+    updateDemoUI('🔇 Đã tắt tiếng YouTube (0%)');
   } else {
     demoVolume = prevDemoVolume || 50;
-    if (audio) audio.volume = demoVolume / 100;
-    updateDemoUI(`🔊 Đã bật lại tiếng Web (${demoVolume}%)`);
+    if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+    if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(demoVolume);
+    updateDemoUI(`🔊 Đã bật lại tiếng YouTube (${demoVolume}%)`);
   }
 }
 
@@ -98,7 +109,11 @@ function nextDemoSong() {
   const song = demoSongs[currentSongIndex];
   document.getElementById('demo-song-title').innerText = song.title;
   document.getElementById('demo-artist').innerText = song.artist;
-  updateDemoUI(`⏭️ Đã chuyển sang bài: ${song.title}`);
+
+  if (ytPlayer && typeof ytPlayer.loadVideoById === 'function') {
+    ytPlayer.loadVideoById(song.id);
+  }
+  updateDemoUI(`⏭️ Đã chuyển bài: ${song.title}`);
 }
 
 function showQueueInfo() {

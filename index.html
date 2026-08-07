@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discord Music Bot - Dev @cuway98 | Bot Phát Nhạc Tiếng Việt</title>
   <meta name="description" content="Trang web chính thức mời Discord Music Bot phát nhạc tiếng Việt. Bản quyền @cuway98. Hỗ trợ nút chỉnh volume trực tiếp, YouTube Mix, Playlist & Shorts.">
+  
+  <!-- Google Fonts: Be Vietnam Pro (Chuẩn Font Tiếng Việt Telex) & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -51,7 +54,7 @@
           Phát Nhạc <span class="gradient-text">Tiếng Việt</span> Siêu Mượt Cho Server Discord
         </h1>
         <p class="hero-description">
-          Bot phát nhạc chất lượng cao HD 128kbps, giao diện 100% tiếng Việt, hỗ trợ <b>Nút Chỉnh Âm Lượng Trực Tiếp 🔉 🔊 🔇</b> không cần gõ lệnh. Tương thích hoàn toàn với YouTube Mix, Radio, Playlist & Shorts.
+          Bot phát nhạc chất lượng cao HD 128kbps, giao diện 100% tiếng Việt chuẩn font, hỗ trợ <b>Nút Chỉnh Âm Lượng Trực Tiếp 🔉 🔊 🔇</b> không cần gõ lệnh. Tương thích hoàn toàn với YouTube Mix, Radio, Playlist & Shorts.
         </p>
 
         <div class="hero-cta-group">
@@ -59,7 +62,7 @@
             <i class="fa-brands fa-discord"></i> Mời Bot Vào Server <i class="fa-solid fa-arrow-right"></i>
           </a>
           <a href="#demo" class="btn btn-hero btn-glass">
-            <i class="fa-solid fa-circle-play"></i> Nghe Thử Bài "Come My Way"
+            <i class="fa-solid fa-circle-play"></i> Nghe Thử "Come My Way"
           </a>
         </div>
 
@@ -98,11 +101,11 @@
             <div class="embed-border"></div>
             <div class="embed-body">
               <div class="embed-title">🎶 Đang phát nhạc</div>
-              <div class="embed-song-name">Sơn Tùng M-TP - Come My Way (Live Version)</div>
+              <div class="embed-song-name">SƠN TÙNG M-TP x TYGA | COME MY WAY</div>
               <div class="embed-fields">
                 <div class="embed-field">
                   <span class="field-name">⏱️ Thời lượng</span>
-                  <span class="field-value">04:15</span>
+                  <span class="field-value">03:55</span>
                 </div>
                 <div class="embed-field">
                   <span class="field-name">🔊 Âm lượng</span>
@@ -117,9 +120,9 @@
           </div>
 
           <div class="discord-buttons-row">
-            <button class="d-btn d-btn-primary" onclick="toggleWebAudio()"><i class="fa-solid fa-play" id="hero-play-icon"></i> Phát Live</button>
+            <button class="d-btn d-btn-primary" onclick="toggleYtPlay()"><i class="fa-solid fa-play" id="hero-play-icon"></i> Phát Live</button>
             <button class="d-btn d-btn-secondary" onclick="nextDemoSong()"><i class="fa-solid fa-forward-step"></i> Bỏ qua</button>
-            <button class="d-btn d-btn-danger" onclick="stopWebAudio()"><i class="fa-solid fa-square"></i> Dừng</button>
+            <button class="d-btn d-btn-danger" onclick="stopYtPlay()"><i class="fa-solid fa-square"></i> Dừng</button>
             <button class="d-btn d-btn-secondary" onclick="showQueueInfo()"><i class="fa-solid fa-list"></i> Danh sách</button>
           </div>
           <div class="discord-buttons-row">
@@ -136,13 +139,15 @@
   <section class="demo-section" id="demo">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Nghe Thử Live <span class="gradient-text">"Come My Way - Sơn Tùng M-TP"</span></h2>
-        <p class="section-subtitle">Phát nhạc trực tiếp trên trình duyệt web và thử chỉnh âm lượng với các nút bấm 🔉 🔊 🔇 bên dưới</p>
+        <h2 class="section-title">Nghe Thử Live <span class="gradient-text">"SƠN TÙNG M-TP x TYGA | COME MY WAY"</span></h2>
+        <p class="section-subtitle">Phát nhạc trực tiếp từ YouTube và chỉnh âm lượng thời gian thực bằng các nút bấm 🔉 🔊 🔇 bên dưới</p>
       </div>
 
       <div class="demo-box">
-        <!-- Audio HTML5 Element cho phát nhạc trực tiếp trên Web -->
-        <audio id="web-audio-player" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" preload="metadata"></audio>
+        <!-- Khung chứa YouTube iFrame Player tự động -->
+        <div class="yt-player-wrapper" id="yt-player-container">
+          <div id="yt-iframe-player"></div>
+        </div>
 
         <div class="demo-player">
           <div class="demo-track-info">
@@ -150,8 +155,8 @@
               <div class="demo-disc" id="demo-disc"></div>
             </div>
             <div class="demo-track-details">
-              <h4 id="demo-song-title">Sơn Tùng M-TP - Come My Way (Live Stream Web Test)</h4>
-              <p id="demo-artist"><i class="fa-brands fa-youtube"></i> Ca sĩ: Sơn Tùng M-TP • Tối ưu âm thanh bởi @cuway98</p>
+              <h4 id="demo-song-title">SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO</h4>
+              <p id="demo-artist"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Phát triển bởi @cuway98</p>
               <div class="volume-bar-container">
                 <span class="vol-icon"><i class="fa-solid fa-volume-high" id="vol-status-icon"></i></span>
                 <div class="volume-bar">
@@ -163,13 +168,13 @@
           </div>
 
           <div class="demo-controls">
-            <button class="demo-btn demo-btn-action" id="btn-web-play" onclick="toggleWebAudio()"><i class="fa-solid fa-play" id="play-icon"></i> <span id="play-text">Phát Live Nhạc</span></button>
+            <button class="demo-btn demo-btn-action" id="btn-web-play" onclick="toggleYtPlay()"><i class="fa-solid fa-play" id="play-icon"></i> <span id="play-text">Phát Live Nhạc</span></button>
             <button class="demo-btn demo-btn-action" onclick="nextDemoSong()"><i class="fa-solid fa-forward-step"></i> Chuyển Bài</button>
             <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(-10)"><i class="fa-solid fa-volume-low"></i> Giảm 10%</button>
             <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(10)"><i class="fa-solid fa-volume-high"></i> Tăng 10%</button>
             <button class="demo-btn demo-btn-mute" onclick="toggleDemoMute()"><i class="fa-solid fa-volume-xmark"></i> Mute / Unmute</button>
           </div>
-          <div class="demo-feedback" id="demo-feedback">👉 Nhấn "Phát Live Nhạc" để thưởng thức và thử bấm nút 🔉 🔊 🔇 để chỉnh âm lượng web thời gian thực!</div>
+          <div class="demo-feedback" id="demo-feedback">👉 Bấm "Phát Live Nhạc" để phát bài COME MY WAY từ YouTube và thử nút bấm 🔉 🔊 🔇 để chỉnh volume thực tế!</div>
         </div>
       </div>
     </div>
@@ -193,7 +198,7 @@
         <div class="feature-card">
           <div class="feature-icon feature-icon-cyan"><i class="fa-solid fa-icons"></i></div>
           <h3 class="feature-title">100% Giao Diện Tiếng Việt</h3>
-          <p class="feature-desc">Toàn bộ thông báo, danh sách phát và Slash Commands đều hiển thị bằng Tiếng Việt chuẩn, thân thiện cho mọi thành viên.</p>
+          <p class="feature-desc">Toàn bộ thông báo, danh sách phát và Slash Commands đều hiển thị bằng Tiếng Việt chuẩn Font Be Vietnam Pro không lỗi font.</p>
         </div>
 
         <div class="feature-card">
@@ -369,6 +374,8 @@
   <!-- Toast Notification -->
   <div class="toast" id="toast">Đã sao chép lệnh vào bộ nhớ tạm!</div>
 
+  <!-- YouTube iFrame API & Script -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js"></script>
 </body>
 </html>
