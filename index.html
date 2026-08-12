@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discord Music Bot - Dev @cuway98 | Bot Phát Nhạc Tiếng Việt</title>
-  <meta name="description" content="Trang web chính thức mời Discord Music Bot phát nhạc tiếng Việt. Bản quyền @cuway98. Hỗ trợ nút chỉnh volume trực tiếp, YouTube Mix, Playlist & Shorts.">
-  
+  <title>Discord Music Bot | Dev @cuway98</title>
+  <meta name="description" content="Discord Music Bot phát nhạc tiếng Việt chất lượng cao. Hỗ trợ YouTube Mix, Playlist & Shorts. Phát trực tiếp 24/7. Dev bởi @cuway98.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,362 +12,111 @@
   <div class="bg-glow"></div>
   <div class="bg-glow bg-glow-2"></div>
 
-  <!-- Header / Navigation -->
+  <!-- Header -->
   <header class="navbar">
     <div class="container nav-container">
       <div class="logo">
-        <div class="logo-icon"><i class="fa-solid fa-music"></i></div>
+        <div class="logo-icon"><i class="fa-solid fa-headphones"></i></div>
         <span class="logo-text">Music<span class="gradient-text">Bot</span></span>
-        <span class="status-badge"><span class="pulse-dot"></span> ONLINE</span>
+        <span class="status-badge"><span class="pulse-dot"></span> ONLINE 24/7</span>
       </div>
 
       <nav class="nav-links">
-        <a href="#features"><i class="fa-solid fa-star"></i> Tính năng</a>
-        <a href="#demo"><i class="fa-solid fa-circle-play"></i> Nghe Thử Live</a>
-        <a href="#commands"><i class="fa-solid fa-terminal"></i> Lệnh Bot</a>
-        <a href="#guide"><i class="fa-solid fa-book"></i> Hướng dẫn</a>
+        <a href="#features"><i class="fa-solid fa-star"></i> Tính Năng</a>
+        <a href="#invite"><i class="fa-brands fa-discord"></i> Mời Bot</a>
+        <a href="#contact"><i class="fa-solid fa-user-gear"></i> Liên Hệ Dev</a>
       </nav>
 
       <div class="nav-actions">
-        <span class="dev-badge"><i class="fa-solid fa-code"></i> Dev: <b>@cuway98</b></span>
         <a href="https://discord.com/oauth2/authorize?client_id=1535100001506828359&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary nav-cta">
-          <i class="fa-brands fa-discord"></i> Mời Bot Ngay
+          <i class="fa-brands fa-discord"></i> Thêm Vào Server
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="tag-pill">
-          <i class="fa-solid fa-bolt gradient-icon"></i> Phát Nhạc Trực Tiếp • Dev bởi @cuway98
+  <main class="container">
+    <!-- Section 1: Hero & Add Bot (Mời Bot Vào Kênh) -->
+    <section id="invite" class="hero-section">
+      <div class="hero-card">
+        <div class="badge-pill">
+          <i class="fa-solid fa-bolt gradient-icon"></i> Bot Phát Nhạc Discord 100% Tiếng Việt
         </div>
         <h1 class="hero-title">
-          Phát Nhạc <span class="gradient-text">Tiếng Việt</span> Siêu Mượt Cho Server Discord
+          Phát Nhạc <span class="gradient-text">Siêu Mượt</span> Cho Server Discord
         </h1>
-        <p class="hero-description">
-          Bot phát nhạc chất lượng cao HD 128kbps, giao diện 100% tiếng Việt font Times New Roman, hỗ trợ <b>Nút Chỉnh Âm Lượng Trực Tiếp 🔉 🔊 🔇</b> không cần gõ lệnh. Tương thích hoàn toàn với YouTube Mix, Radio, Playlist & Shorts.
+        <p class="hero-subtitle">
+          Âm thanh chất lượng cao HD 128kbps, tốc độ phản hồi tức thì, tự động bypass chặn IP và hoạt động 24/7 trên mọi máy chủ.
         </p>
 
-        <div class="hero-cta-group">
+        <div class="hero-cta">
           <a href="https://discord.com/oauth2/authorize?client_id=1535100001506828359&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-hero btn-primary">
-            <i class="fa-brands fa-discord"></i> Mời Bot Vào Server <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="#demo" class="btn btn-hero btn-glass">
-            <i class="fa-solid fa-circle-play"></i> Nghe Thử "Come My Way"
+            <i class="fa-brands fa-discord"></i> Thêm Bot Vào Kênh Ngay
           </a>
         </div>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-value">@cuway98</span>
-            <span class="stat-label">Developer</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-value">100%</span>
-            <span class="stat-label">Tiếng Việt</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-value">24/7</span>
-            <span class="stat-label">Thời gian chạy</span>
-          </div>
-        </div>
       </div>
+    </section>
 
-      <!-- Hero Visual Preview -->
-      <div class="hero-visual">
-        <div class="discord-card-mockup">
-          <div class="discord-header">
-            <div class="bot-avatar">
-              <i class="fa-solid fa-headphones"></i>
-            </div>
-            <div class="bot-meta">
-              <div class="bot-name">MusicBot <span class="bot-tag">BOT</span></div>
-              <div class="bot-status">Đã dùng /play • Phát trực tiếp bởi @cuway98</div>
-            </div>
-          </div>
-
-          <div class="discord-embed">
-            <div class="embed-border"></div>
-            <div class="embed-body">
-              <div class="embed-title">🎶 Đang phát nhạc</div>
-              <div class="embed-song-name">SƠN TÙNG M-TP x TYGA | COME MY WAY</div>
-              <div class="embed-fields">
-                <div class="embed-field">
-                  <span class="field-name">⏱️ Thời lượng</span>
-                  <span class="field-value">03:55</span>
-                </div>
-                <div class="embed-field">
-                  <span class="field-name">🔊 Âm lượng</span>
-                  <span class="field-valueHighlight" id="demo-vol-text">50%</span>
-                </div>
-                <div class="embed-field">
-                  <span class="field-name">👤 Yêu cầu</span>
-                  <span class="field-value">@cuway98</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="discord-buttons-row">
-            <button class="d-btn d-btn-primary" onclick="toggleYtPlay()"><i class="fa-solid fa-play" id="hero-play-icon"></i> Phát Live</button>
-            <button class="d-btn d-btn-danger" onclick="stopYtPlay()"><i class="fa-solid fa-square"></i> Dừng</button>
-            <button class="d-btn d-btn-secondary" onclick="showQueueInfo()"><i class="fa-solid fa-list"></i> Danh sách</button>
-          </div>
-          <div class="discord-buttons-row">
-            <button class="d-btn d-btn-secondary" onclick="changeDemoVol(-10)"><i class="fa-solid fa-volume-low"></i> Giảm 10%</button>
-            <button class="d-btn d-btn-secondary" onclick="changeDemoVol(10)"><i class="fa-solid fa-volume-high"></i> Tăng 10%</button>
-            <button class="d-btn d-btn-secondary" id="btn-demo-mute" onclick="toggleDemoMute()"><i class="fa-solid fa-volume-xmark"></i> Tắt tiếng</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Live Audio Player Demo Section -->
-  <section class="demo-section" id="demo">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Nghe Thử Live <span class="gradient-text">"SƠN TÙNG M-TP x TYGA | COME MY WAY"</span></h2>
-        <p class="section-subtitle">Phát video nhạc trực tiếp từ YouTube và thử các nút bấm 🔉 🔊 🔇 để chỉnh âm lượng</p>
-      </div>
-
-      <div class="demo-box">
-        <!-- Khung phát YouTube trực tiếp -->
-        <div class="yt-player-wrapper">
-          <iframe id="yt-iframe-player" src="https://www.youtube.com/embed/SlQR9iu09bQ?enablejsapi=1&rel=0&autoplay=0" title="SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-
-        <div class="demo-player">
-          <div class="demo-track-info">
-            <div class="demo-disc-container">
-              <div class="demo-disc" id="demo-disc"></div>
-            </div>
-            <div class="demo-track-details">
-              <h4 id="demo-song-title">SON TUNG M-TP x TYGA | COME MY WAY | OFFICIAL MUSIC VIDEO</h4>
-              <p id="demo-artist"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Kênh: Sơn Tùng M-TP Official • Thời lượng: 03:55 • Dev bởi @cuway98</p>
-              <div class="volume-bar-container">
-                <span class="vol-icon"><i class="fa-solid fa-volume-high" id="vol-status-icon"></i></span>
-                <div class="volume-bar">
-                  <div class="volume-fill" id="vol-fill" style="width: 50%;"></div>
-                </div>
-                <span class="vol-percent" id="vol-percent-text">50%</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo-controls">
-            <button class="demo-btn demo-btn-action" id="btn-web-play" onclick="toggleYtPlay()"><i class="fa-solid fa-play" id="play-icon"></i> <span id="play-text">Phát Live Nhạc</span></button>
-            <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(-10)"><i class="fa-solid fa-volume-low"></i> Giảm 10%</button>
-            <button class="demo-btn demo-btn-vol" onclick="changeDemoVol(10)"><i class="fa-solid fa-volume-high"></i> Tăng 10%</button>
-            <button class="demo-btn demo-btn-mute" onclick="toggleDemoMute()"><i class="fa-solid fa-volume-xmark"></i> Mute / Unmute</button>
-          </div>
-          <div class="demo-feedback" id="demo-feedback">👉 Bấm nút ▶️ Phát trên video YouTube hoặc nút "Phát Live Nhạc" để nghe nhạc trực tiếp!</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Tính Năng Độc Quyền Phát Triển Bởi <span class="gradient-text">@cuway98</span></h2>
-        <p class="section-subtitle">Tất cả những tính năng tốt nhất dành cho trải nghiệm nghe nhạc trên Discord của bạn</p>
-      </div>
-
+    <!-- Section 2: Features (Giới Thiệu Tính Năng Chính) -->
+    <section id="features" class="features-section">
+      <h2 class="section-title"><i class="fa-solid fa-star gradient-icon"></i> Tính Năng Nổi Bật</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon feature-icon-purple"><i class="fa-solid fa-sliders"></i></div>
-          <h3 class="feature-title">Nút Chỉnh Âm Lượng Trực Tiếp</h3>
-          <p class="feature-desc">Tích hợp nút bấm 🔉 🔊 🔇 ngay trên Embed tin nhắn. Tăng/giảm hoặc mute âm lượng thời gian thực mà không cần gõ câu lệnh!</p>
+          <div class="feature-icon"><i class="fa-solid fa-music"></i></div>
+          <h3>Phát Nhạc Thông Minh</h3>
+          <p>Tìm kiếm bằng từ khóa hoặc đường link YouTube, hỗ trợ tự động tìm kiếm kết quả chuẩn xác nhất trong 1 giây.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon feature-icon-cyan"><i class="fa-solid fa-icons"></i></div>
-          <h3 class="feature-title">100% Giao Diện Tiếng Việt</h3>
-          <p class="feature-desc">Toàn bộ thông báo, danh sách phát và Slash Commands đều hiển thị bằng Tiếng Việt chuẩn Font Times New Roman.</p>
+          <div class="feature-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h3>Hỗ Trợ Đa Dạng Link</h3>
+          <p>Tương thích hoàn toàn với YouTube Video, Playlist đầy đủ, YouTube Shorts và các danh sách phát Mix tự động.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon feature-icon-pink"><i class="fa-brands fa-youtube"></i></div>
-          <h3 class="feature-title">Tương Thích Mọi Link YouTube</h3>
-          <p class="feature-desc">Tự động nhận diện & bóc tách link bài hát từ YouTube Mix, Radio, Playlist chuẩn, YouTube Shorts hay link rút gọn youtu.be.</p>
+          <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Giao Diện Trực Quan</h3>
+          <p>100% Tiếng Việt với bảng điều khiển nút bấm nhanh (Tạm dừng, Tiếp tục, Bỏ qua, Dừng phát & Danh sách chờ).</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon feature-icon-blue"><i class="fa-solid fa-bolt-lightning"></i></div>
-          <h3 class="feature-title">Âm Thanh HD Không Giật Lag</h3>
-          <p class="feature-desc">Sử dụng mã hóa Opus Native C (libopus) tốc độ cao cùng kết nối voice gateway DAVE E2EE mới nhất của Discord.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon feature-icon-green"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3 class="feature-title">Dễ Dàng Sử Dụng & An Toàn</h3>
-          <p class="feature-desc">Cấp quyền chuẩn, Slash Commands hiển thị gợi ý trực tiếp ngay khi gõ `/play`, tự động rời phòng thoại khi trống.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon feature-icon-orange"><i class="fa-solid fa-user-astronaut"></i></div>
-          <h3 class="feature-title">Hỗ Trợ Trực Tiếp Bởi @cuway98</h3>
-          <p class="feature-desc">Được lập trình và bảo trì liên tục bởi Dev @cuway98, cập nhật tính năng và thuật toán nhạc mới nhất 2026.</p>
+          <div class="feature-icon"><i class="fa-solid fa-server"></i></div>
+          <h3>Hoạt Động 24/7 Siêu Nhẹ</h3>
+          <p>Tối ưu hóa mã nguồn tối đa, sẵn sàng treo 24/7 trên VPS Wispbyte hoặc ngay trên điện thoại Android (Termux).</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Commands Showcase -->
-  <section class="commands-section" id="commands">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Danh Sách <span class="gradient-text">Slash Commands</span></h2>
-        <p class="section-subtitle">Chỉ cần gõ dấu <code>/</code> trong kênh chat Discord để dùng tất cả các lệnh dưới đây</p>
-      </div>
-
-      <div class="commands-search">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="command-search-input" placeholder="Tìm kiếm lệnh (ví dụ: /play, /volume...)" onkeyup="filterCommands()">
-      </div>
-
-      <div class="commands-list" id="commands-list">
-        <div class="command-card" data-cmd="/play">
-          <div class="cmd-header">
-            <span class="cmd-name">/play <span class="cmd-param">query: [tên hoặc link]</span></span>
-            <button class="copy-btn" onclick="copyText('/play')"><i class="fa-regular fa-copy"></i> Sao chép</button>
+    <!-- Section 3: Contact Dev (Liên Hệ Developer) -->
+    <section id="contact" class="contact-section">
+      <div class="contact-card">
+        <div class="contact-header">
+          <div class="dev-avatar">
+            <i class="fa-solid fa-code"></i>
           </div>
-          <p class="cmd-desc">Phát nhạc từ YouTube, Mix, Radio, Playlist hoặc từ khóa tìm kiếm bất kỳ.</p>
+          <div>
+            <h2 class="dev-name">Developer: @cuway98</h2>
+            <p class="dev-role">Tác giả & Phát triển mã nguồn Discord Music Bot</p>
+          </div>
         </div>
-
-        <div class="command-card" data-cmd="/volume">
-          <div class="cmd-header">
-            <span class="cmd-name">/volume <span class="cmd-param">level: [1 - 100]</span></span>
-            <span class="new-badge">MỚI</span>
-            <button class="copy-btn" onclick="copyText('/volume 50')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Điều chỉnh âm lượng nhạc của Bot từ 1% đến 100% thời gian thực.</p>
-        </div>
-
-        <div class="command-card" data-cmd="/pause">
-          <div class="cmd-header">
-            <span class="cmd-name">/pause</span>
-            <button class="copy-btn" onclick="copyText('/pause')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Tạm dừng bài hát đang phát trong phòng thoại.</p>
-        </div>
-
-        <div class="command-card" data-cmd="/resume">
-          <div class="cmd-header">
-            <span class="cmd-name">/resume</span>
-            <button class="copy-btn" onclick="copyText('/resume')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Tiếp tục phát bài hát đang được tạm dừng.</p>
-        </div>
-
-        <div class="command-card" data-cmd="/skip">
-          <div class="cmd-header">
-            <span class="cmd-name">/skip</span>
-            <button class="copy-btn" onclick="copyText('/skip')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Bỏ qua bài hát hiện tại để chuyển sang bài tiếp theo trong hàng đợi.</p>
-        </div>
-
-        <div class="command-card" data-cmd="/stop">
-          <div class="cmd-header">
-            <span class="cmd-name">/stop</span>
-            <button class="copy-btn" onclick="copyText('/stop')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Dừng phát nhạc hoàn toàn, xóa hàng đợi và rời khỏi phòng thoại.</p>
-        </div>
-
-        <div class="command-card" data-cmd="/queue">
-          <div class="cmd-header">
-            <span class="cmd-name">/queue</span>
-            <button class="copy-btn" onclick="copyText('/queue')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Hiển thị danh sách các bài hát đang chờ phát và mức âm lượng hiện tại.</p>
-        </div>
-
-        <div class="command-card" data-cmd="/nowplaying">
-          <div class="cmd-header">
-            <span class="cmd-name">/nowplaying</span>
-            <button class="copy-btn" onclick="copyText('/nowplaying')"><i class="fa-regular fa-copy"></i> Sao chép</button>
-          </div>
-          <p class="cmd-desc">Xem thông tin bài hát đang phát kèm 2 hàng nút bấm điều chỉnh âm lượng trực tiếp.</p>
+        <div class="contact-links">
+          <a href="https://discord.com" target="_blank" class="contact-item">
+            <i class="fa-brands fa-discord"></i> Discord: <b>@cuway98</b>
+          </a>
+          <a href="https://github.com/cuway" target="_blank" class="contact-item">
+            <i class="fa-brands fa-github"></i> GitHub: <b>cuway</b>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Setup Guide Section -->
-  <section class="guide-section" id="guide">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Hướng Dẫn <span class="gradient-text">Thêm Bot Vào Server</span></h2>
-        <p class="section-subtitle">Chỉ với 3 bước cực kỳ đơn giản để đưa Bot phát nhạc vào Server Discord của bạn</p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3 class="step-title">Nhấn Nút Mời Bot</h3>
-          <p class="step-desc">Nhấn vào nút <b>Mời Bot Ngay</b> trên trang web để mở liên kết xác thực OAuth2 của Discord.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3 class="step-title">Chọn Server & Cấp Quyền</h3>
-          <p class="step-desc">Chọn Server Discord của bạn, tích chọn chấp nhận các quyền voice & văn bản, sau đó nhấn <b>Authorize</b>.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3 class="step-title">Vào Voice & Thưởng Thức</h3>
-          <p class="step-desc">Thành viên vào phòng thoại bất kỳ, gõ <code>/play [tên bài hát]</code> để Bot vào phòng phát nhạc ngay lập tức!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA Banner -->
-  <section class="cta-banner">
-    <div class="container">
-      <div class="banner-box">
-        <h2 class="banner-title">Sẵn Sàng Trải Nghiệm Âm Nhạc Cùng @cuway98?</h2>
-        <p class="banner-subtitle">Thêm Bot vào Server của bạn ngay bây giờ - Miễn phí 100% & Khởi chạy tức thì!</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1535100001506828359&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-hero btn-primary">
-          <i class="fa-brands fa-discord"></i> Mời Bot Vào Server Ngay
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-left">
-        <div class="logo">
-          <div class="logo-icon"><i class="fa-solid fa-music"></i></div>
-          <span class="logo-text">Music<span class="gradient-text">Bot</span></span>
-        </div>
-        <p class="footer-desc">Discord Music Bot Tiếng Việt phát nhạc HD tích hợp Nút Chỉnh Âm Lượng Trực Tiếp 🔉 🔊 🔇.</p>
-        <p class="dev-contact"><i class="fa-solid fa-code"></i> Liên hệ Dev: <strong>@cuway98</strong></p>
-      </div>
-
-      <div class="footer-right">
-        <p class="copyright">Bản quyền © 2026 <strong>@cuway98</strong>. All rights reserved.</p>
-      </div>
+    <div class="container">
+      <p>© 2026 Discord Music Bot. Phát triển bởi <b>@cuway98</b>. Tất cả quyền được bảo lưu.</p>
     </div>
   </footer>
 
-  <!-- Toast Notification -->
-  <div class="toast" id="toast">Đã sao chép lệnh vào bộ nhớ tạm!</div>
-
-  <!-- YouTube iFrame API & Script -->
-  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js"></script>
 </body>
 </html>
